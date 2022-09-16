@@ -7,6 +7,7 @@ namespace ft{
 template <class iter>
 class access_random_iterator{
     public:
+        typedef typename std::random_access_iterator_tag iterator_category;
         typedef std::ptrdiff_t difference_type;
         typedef typename iterator_traits<iter *>::value_type value_type;
         typedef iter* pointer;
@@ -31,7 +32,7 @@ class access_random_iterator{
         }
         // template<class it>
         // access_random_iterator& operator=( access_random_iterator<it> const &x)
-        access_random_iterator& operator=( access_random_iterator const &x)
+        access_random_iterator & operator=( access_random_iterator const &x)
         {
             // std::cout << " ASSIGN" << std::endl;
             _ptr = x.base();

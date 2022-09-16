@@ -6,7 +6,7 @@
 /*   By: majdahim <majdahim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 21:12:14 by murachid          #+#    #+#             */
-/*   Updated: 2022/09/14 19:07:34 by majdahim         ###   ########.fr       */
+/*   Updated: 2022/09/16 03:18:18 by majdahim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <signal.h>
 #include <sys/time.h>
 #include "vector.hpp"
+
 // #include "../../containers/pair/pair.hpp"  // path to ft::pair.
 
 #define BLUE "\e[0;34m"
@@ -486,61 +487,61 @@ void reverse_iterator_with_ft_vector(void)
 void vector_tests(void)
 {
     std::cout << "\033[1;36m<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< vector tests >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m\n\n";
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " fill constructor "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*--------------- fill tow vectors with a 10 strings ------*/
-    //     ft::vector<std::string> my_v(10, "fill constructor test");
-    //     std::vector<std::string> v(10, "fill constructor test");
-    //     /*---------------------------------------------------------*/
-    //     /*--------------- declare tow strings to store the results ------*/
-    //     std::string res, my_res;
-    //     /*---------------------------------------------------------*/
-    //     for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it) // fill res from std::vector
-    //         res += *it;
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " fill constructor "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*--------------- fill tow vectors with a 10 strings ------*/
+        ft::vector<std::string> my_v(10, "fill constructor test");
+        std::vector<std::string> v(10, "fill constructor test");
+        /*---------------------------------------------------------*/
+        /*--------------- declare tow strings to store the results ------*/
+        std::string res, my_res;
+        /*---------------------------------------------------------*/
+        for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it) // fill res from std::vector
+            res += *it;
 
-    //     for (ft::vector<std::string>::iterator it = my_v.begin(); it != my_v.end(); ++it) // fill my_res from ft::vector
-    //         my_res += *it;
-    //     EQUAL(res == my_res);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " range constructor "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*--------------- fill std::vector with 10 strings and ft::vector with range of iterators ------*/
-    //     std::vector<std::string> v(10, "range constructor test");
-    //     ft::vector<std::string> my_v(10, "range constructor test");
-    //     ft::vector<std::string> my_v1(my_v.begin(), my_v.end()); // this one is to check if the range works with ft::vector
-    //     /*----------------------------------------------------------------------------------------------*/
-    //     /*--------------- declare tow strings to store the results ------*/
-    //     std::string res, my_res, my_res1;
-    //     /*--------------------------------------------------------*/
-    //     for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it) // fill res from std::vector
-    //         res += *it;
+        for (ft::vector<std::string>::iterator it = my_v.begin(); it != my_v.end(); ++it) // fill my_res from ft::vector
+            my_res += *it;
+        EQUAL(res == my_res);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " range constructor "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*--------------- fill std::vector with 10 strings and ft::vector with range of iterators ------*/
+        std::vector<std::string> v(10, "range constructor test");
+        ft::vector<std::string> my_v(10, "range constructor test");
+        ft::vector<std::string> my_v1(my_v.begin(), my_v.end()); // this one is to check if the range works with ft::vector
+        /*----------------------------------------------------------------------------------------------*/
+        /*--------------- declare tow strings to store the results ------*/
+        std::string res, my_res, my_res1;
+        /*--------------------------------------------------------*/
+        for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it) // fill res from std::vector
+            res += *it;
 
-    //     for (ft::vector<std::string>::iterator it = my_v.begin(); it != my_v.end(); ++it) // fill my_res from ft::vector
-    //         my_res += *it;
+        for (ft::vector<std::string>::iterator it = my_v.begin(); it != my_v.end(); ++it) // fill my_res from ft::vector
+            my_res += *it;
 
-    //     for (ft::vector<std::string>::iterator it = my_v1.begin(); it != my_v1.end(); ++it) // fill my_res1 from ft::vector
-    //         my_res1 += *it;
-    //     EQUAL(res == my_res && my_res == my_res1);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " copy constructor "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*---------------------------- declare a vector and fill with 'a', and create a copy of it ------------------*/
-    //     ft::vector<char> v1(10, 'a');
-    //     ft::vector<char> copy_v(v1);
-    //     /*-----------------------------------------------------------------------------------------------------------*/
-    //     /*--------------- declare tow strings to store the results ------*/
-    //     std::string res, res1;
-    //     /*--------------------------------------------------------*/
-    //     for (ft::vector<char>::iterator it = v1.begin(); it != v1.end(); ++it) // fill res from v1
-    //         res += *it;
+        for (ft::vector<std::string>::iterator it = my_v1.begin(); it != my_v1.end(); ++it) // fill my_res1 from ft::vector
+            my_res1 += *it;
+        EQUAL(res == my_res && my_res == my_res1);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " copy constructor "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*---------------------------- declare a vector and fill with 'a', and create a copy of it ------------------*/
+        ft::vector<char> v1(10, 'a');
+        ft::vector<char> copy_v(v1);
+        /*-----------------------------------------------------------------------------------------------------------*/
+        /*--------------- declare tow strings to store the results ------*/
+        std::string res, res1;
+        /*--------------------------------------------------------*/
+        for (ft::vector<char>::iterator it = v1.begin(); it != v1.end(); ++it) // fill res from v1
+            res += *it;
 
-    //     for (ft::vector<char>::iterator it = copy_v.begin(); it != copy_v.end(); ++it) // fill res from copy_v
-    //         res1 += *it;
-    //     EQUAL(res == res1);
-    // }
+        for (ft::vector<char>::iterator it = copy_v.begin(); it != copy_v.end(); ++it) // fill res from copy_v
+            res1 += *it;
+        EQUAL(res == res1);
+    }
     /*------------------------------------------ = operator tests --------------------------------------------------------------------------------------------*/
     /*------------------------------------------ test 1 : test with equale size vecotrs ----------------------------------------------------------------------*/
     std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " = operator (lhs.size = rhs.size) "
@@ -779,129 +780,129 @@ void vector_tests(void)
         /*----------------------------------------------------*/
         EQUAL(v1.max_size() == ft_v1.max_size() && v2.max_size() == ft_v2.max_size() && v4.max_size() == ft_v4.max_size());
     }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " resize method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*
-    //      * Strings to store the results
-    //      */
-    //     std::string s1, s2, s3, s4, ft_s1, ft_s2, ft_s3, ft_s4;
-    //     std::string sit1, sit2, sit3, ft_sit1, ft_sit2, ft_sit3; // strings to store the result by iterators
-    //     /*
-    //      * Var to store the size and the capacity
-    //      */
-    //     size_t z1, z2, z3, z4, ft_z1, ft_z2, ft_z3, ft_z4;
-    //     size_t c1, c2, c3, c4, ft_c1, ft_c2, ft_c3, ft_c4;
-    //     /*
-    //      * iterators to check the iterator validity
-    //      *  it : iterator, eit : iterator to the end
-    //      */
-    //     std::vector<std::string>::iterator valid_it, valid_eit;
-    //     ft::vector<std::string>::iterator ft_valid_it, ft_valid_eit;
-    //     /*
-    //      * test with n greater than vector capacity
-    //      */
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v1(10, "string2");
-    //     v1.resize(1e6, "hello");
-    //     /*------------------ ft::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v1(10, "string2");
-    //     ft_v1.resize(1e6, "hello");
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " resize method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*
+         * Strings to store the results
+         */
+        std::string s1, s2, s3, s4, ft_s1, ft_s2, ft_s3, ft_s4;
+        std::string sit1, sit2, sit3, ft_sit1, ft_sit2, ft_sit3; // strings to store the result by iterators
+        /*
+         * Var to store the size and the capacity
+         */
+        size_t z1, z2, z3, z4, ft_z1, ft_z2, ft_z3, ft_z4;
+        size_t c1, c2, c3, c4, ft_c1, ft_c2, ft_c3, ft_c4;
+        /*
+         * iterators to check the iterator validity
+         *  it : iterator, eit : iterator to the end
+         */
+        std::vector<std::string>::iterator valid_it, valid_eit;
+        ft::vector<std::string>::iterator ft_valid_it, ft_valid_eit;
+        /*
+         * test with n greater than vector capacity
+         */
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v1(10, "string2");
+        v1.resize(1e6, "hello");
+        /*------------------ ft::vectors ---------------------*/
+        ft::vector<std::string> ft_v1(10, "string2");
+        ft_v1.resize(1e6, "hello");
 
-    //     z1 = v1.size();
-    //     ft_z1 = ft_v1.size();
-    //     c1 = v1.capacity();
-    //     ft_c1 = ft_v1.capacity();
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s1 += v1[i];
+        z1 = v1.size();
+        ft_z1 = ft_v1.size();
+        c1 = v1.capacity();
+        ft_c1 = ft_v1.capacity();
+        for (size_t i = 0; i < v1.size(); ++i)
+            s1 += v1[i];
 
-    //     for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
-    //         ft_s1 += *it;
-    //     /*----------------------------------------------------*/
-    //     /*
-    //      *	test with n lesser than capacity and greater than size
-    //      */
-    //     /*------------------ std::vectors ---------------------*/
-    //     v1.resize(20);
-    //     valid_it = v1.begin();
-    //     valid_eit = v1.end();
-    //     v1.resize(1e5);
-    //     /*------------------ ft::vectors ---------------------*/
-    //     ft_v1.resize(20);
-    //     ft_valid_it = ft_v1.begin();
-    //     ft_valid_eit = ft_v1.end();
-    //     ft_v1.resize(1e5);
+        for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
+            ft_s1 += *it;
+        /*----------------------------------------------------*/
+        /*
+         *	test with n lesser than capacity and greater than size
+         */
+        /*------------------ std::vectors ---------------------*/
+        v1.resize(20);
+        valid_it = v1.begin();
+        valid_eit = v1.end();
+        v1.resize(1e5);
+        /*------------------ ft::vectors ---------------------*/
+        ft_v1.resize(20);
+        ft_valid_it = ft_v1.begin();
+        ft_valid_eit = ft_v1.end();
+        ft_v1.resize(1e5);
 
-    //     z2 = v1.size();
-    //     ft_z2 = ft_v1.size();
-    //     c2 = v1.capacity();
-    //     ft_c2 = ft_v1.capacity();
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s2 += v1[i];
+        z2 = v1.size();
+        ft_z2 = ft_v1.size();
+        c2 = v1.capacity();
+        ft_c2 = ft_v1.capacity();
+        for (size_t i = 0; i < v1.size(); ++i)
+            s2 += v1[i];
 
-    //     for (; valid_it != valid_eit; ++valid_it)
-    //         sit1 += *valid_it;
+        for (; valid_it != valid_eit; ++valid_it)
+            sit1 += *valid_it;
 
-    //     for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
-    //         ft_s2 += *it;
+        for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
+            ft_s2 += *it;
 
-    //     for (; ft_valid_it != ft_valid_eit; ++ft_valid_it)
-    //         ft_sit1 += *ft_valid_it;
-    //     /*----------------------------------------------------*/
-    //     /*
-    //      * test with n lesser than capacity and lesser an size
-    //      */
-    //     /*------------------ std::vectors ---------------------*/
-    //     valid_it = v1.begin();
-    //     v1.resize(50);
-    //     /*------------------ ft::vectors ---------------------*/
-    //     ft_valid_it = ft_v1.begin();
-    //     ft_v1.resize(50);
+        for (; ft_valid_it != ft_valid_eit; ++ft_valid_it)
+            ft_sit1 += *ft_valid_it;
+        /*----------------------------------------------------*/
+        /*
+         * test with n lesser than capacity and lesser an size
+         */
+        /*------------------ std::vectors ---------------------*/
+        valid_it = v1.begin();
+        v1.resize(50);
+        /*------------------ ft::vectors ---------------------*/
+        ft_valid_it = ft_v1.begin();
+        ft_v1.resize(50);
 
-    //     z3 = v1.size();
-    //     ft_z3 = ft_v1.size();
-    //     c3 = v1.capacity();
-    //     ft_c3 = ft_v1.capacity();
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s3 += v1[i];
+        z3 = v1.size();
+        ft_z3 = ft_v1.size();
+        c3 = v1.capacity();
+        ft_c3 = ft_v1.capacity();
+        for (size_t i = 0; i < v1.size(); ++i)
+            s3 += v1[i];
 
-    //     for (; valid_it != v1.end(); ++valid_it)
-    //         sit2 += *valid_it;
+        for (; valid_it != v1.end(); ++valid_it)
+            sit2 += *valid_it;
 
-    //     for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
-    //         ft_s3 += *it;
+        for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
+            ft_s3 += *it;
 
-    //     for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
-    //         ft_sit2 += *ft_valid_it;
-    //     /*----------------------------------------------------*/
-    //     /*
-    //      * test with n = 0
-    //      */
-    //     /*------------------ std::vectors ---------------------*/
-    //     valid_it = v1.begin();
-    //     v1.resize(0, "string4");
-    //     /*------------------ ft::vectors ---------------------*/
-    //     ft_valid_it = ft_v1.begin();
-    //     ft_v1.resize(0, "string4");
+        for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
+            ft_sit2 += *ft_valid_it;
+        /*----------------------------------------------------*/
+        /*
+         * test with n = 0
+         */
+        /*------------------ std::vectors ---------------------*/
+        valid_it = v1.begin();
+        v1.resize(0, "string4");
+        /*------------------ ft::vectors ---------------------*/
+        ft_valid_it = ft_v1.begin();
+        ft_v1.resize(0, "string4");
 
-    //     z4 = v1.size();
-    //     ft_z4 = ft_v1.size();
-    //     c4 = v1.capacity();
-    //     ft_c4 = ft_v1.capacity();
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s4 += v1[i];
+        z4 = v1.size();
+        ft_z4 = ft_v1.size();
+        c4 = v1.capacity();
+        ft_c4 = ft_v1.capacity();
+        for (size_t i = 0; i < v1.size(); ++i)
+            s4 += v1[i];
 
-    //     for (; valid_it != v1.end(); ++valid_it)
-    //         sit3 += *valid_it;
+        for (; valid_it != v1.end(); ++valid_it)
+            sit3 += *valid_it;
 
-    //     for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
-    //         ft_s4 += *it;
+        for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
+            ft_s4 += *it;
 
-    //     for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
-    //         ft_sit3 += *ft_valid_it;
-    //     /*----------------------------------------------------*/
-    //     EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1 && sit1 == ft_sit1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3 && sit2 == ft_sit2) && (s4 == ft_s4 && z4 == ft_z4 && c4 == ft_c4 && sit3 == ft_sit3));
-    // }
+        for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
+            ft_sit3 += *ft_valid_it;
+        /*----------------------------------------------------*/
+        EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1 && sit1 == ft_sit1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3 && sit2 == ft_sit2) && (s4 == ft_s4 && z4 == ft_z4 && c4 == ft_c4 && sit3 == ft_sit3));
+    }
     std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " empty method "
               << "] --------------------]\t\t\033[0m";
     {
@@ -914,96 +915,96 @@ void vector_tests(void)
 
         EQUAL(v1.empty() == ft_v1.empty() && v2.empty() == ft_v2.empty());
     }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " reserve method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*
-    //      * Strings to store the results
-    //      */
-    //     std::string s1, s2, s3, ft_s1, ft_s2, ft_s3;
-    //     std::string sit1, ft_sit1; // strings to store the result by iterators
-    //     /*
-    //      * Var to store the size and the capacity
-    //      */
-    //     size_t z1, z2, z3, ft_z1, ft_z2, ft_z3;
-    //     size_t c1, c2, c3, ft_c1, ft_c2, ft_c3;
-    //     /*
-    //      * iterators to check the iterator validity
-    //      *  it : iterator, eit : iterator to the end
-    //      */
-    //     std::vector<std::string>::iterator valid_it, valid_eit;
-    //     ft::vector<std::string>::iterator ft_valid_it, ft_valid_eit;
-    //     // bool to check if the function throw or not
-    //     bool exec_throwed = false;
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v1(10, "string2");
-    //     std::vector<char> v2;
-    //     /*------------------ std::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v1(10, "string2");
-    //     ft::vector<char> ft_v2;
-    //     try
-    //     {
-    //         ft_v1.reserve(ft_v1.max_size() + 1);
-    //     }
-    //     catch (std::length_error const &e)
-    //     {
-    //         (void)e;
-    //         exec_throwed = true;
-    //     }
-    //     v1.reserve(100);
-    //     ft_v1.reserve(100);
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " reserve method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*
+         * Strings to store the results
+         */
+        std::string s1, s2, s3, ft_s1, ft_s2, ft_s3;
+        std::string sit1, ft_sit1; // strings to store the result by iterators
+        /*
+         * Var to store the size and the capacity
+         */
+        size_t z1, z2, z3, ft_z1, ft_z2, ft_z3;
+        size_t c1, c2, c3, ft_c1, ft_c2, ft_c3;
+        /*
+         * iterators to check the iterator validity
+         *  it : iterator, eit : iterator to the end
+         */
+        std::vector<std::string>::iterator valid_it, valid_eit;
+        ft::vector<std::string>::iterator ft_valid_it, ft_valid_eit;
+        // bool to check if the function throw or not
+        bool exec_throwed = false;
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v1(10, "string2");
+        std::vector<char> v2;
+        /*------------------ std::vectors ---------------------*/
+        ft::vector<std::string> ft_v1(10, "string2");
+        ft::vector<char> ft_v2;
+        try
+        {
+            ft_v1.reserve(ft_v1.max_size() + 1);
+        }
+        catch (std::length_error const &e)
+        {
+            (void)e;
+            exec_throwed = true;
+        }
+        v1.reserve(100);
+        ft_v1.reserve(100);
 
-    //     z1 = v1.size();
-    //     ft_z1 = ft_v1.size();
-    //     c1 = v1.capacity();
-    //     ft_c1 = ft_v1.capacity();
+        z1 = v1.size();
+        ft_z1 = ft_v1.size();
+        c1 = v1.capacity();
+        ft_c1 = ft_v1.capacity();
 
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s1 += v1[i];
+        for (size_t i = 0; i < v1.size(); ++i)
+            s1 += v1[i];
 
-    //     ft_valid_it = ft_v1.begin();
-    //     for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
-    //         ft_s1 += *ft_valid_it;
+        ft_valid_it = ft_v1.begin();
+        for (; ft_valid_it != ft_v1.end(); ++ft_valid_it)
+            ft_s1 += *ft_valid_it;
 
-    //     valid_it = v1.begin();
-    //     valid_eit = v1.end();
-    //     ft_valid_it = ft_v1.begin();
-    //     ft_valid_eit = ft_v1.end();
-    //     v1.reserve(50);
-    //     ft_v1.reserve(50);
+        valid_it = v1.begin();
+        valid_eit = v1.end();
+        ft_valid_it = ft_v1.begin();
+        ft_valid_eit = ft_v1.end();
+        v1.reserve(50);
+        ft_v1.reserve(50);
 
-    //     z2 = v1.size();
-    //     ft_z2 = ft_v1.size();
-    //     c2 = v1.capacity();
-    //     ft_c2 = ft_v1.capacity();
+        z2 = v1.size();
+        ft_z2 = ft_v1.size();
+        c2 = v1.capacity();
+        ft_c2 = ft_v1.capacity();
 
-    //     for (size_t i = 0; i < v1.size(); ++i)
-    //         s2 += v1[i];
+        for (size_t i = 0; i < v1.size(); ++i)
+            s2 += v1[i];
 
-    //     for (; valid_it != valid_eit; ++valid_it)
-    //         sit1 += *valid_it;
+        for (; valid_it != valid_eit; ++valid_it)
+            sit1 += *valid_it;
 
-    //     for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
-    //         ft_s2 += *it;
+        for (ft::vector<std::string>::iterator it = ft_v1.begin(); it != ft_v1.end(); ++it)
+            ft_s2 += *it;
 
-    //     for (; ft_valid_it != ft_valid_eit; ++ft_valid_it)
-    //         ft_sit1 += *ft_valid_it;
+        for (; ft_valid_it != ft_valid_eit; ++ft_valid_it)
+            ft_sit1 += *ft_valid_it;
 
-    //     v2.reserve(200);
-    //     ft_v2.reserve(200);
-    //     z3 = v2.size();
-    //     ft_z3 = ft_v2.size();
-    //     c3 = v2.capacity();
-    //     ft_c3 = ft_v2.capacity();
+        v2.reserve(200);
+        ft_v2.reserve(200);
+        z3 = v2.size();
+        ft_z3 = ft_v2.size();
+        c3 = v2.capacity();
+        ft_c3 = ft_v2.capacity();
 
-    //     for (size_t i = 0; i < v2.size(); ++i)
-    //         s3 += v2[i];
+        for (size_t i = 0; i < v2.size(); ++i)
+            s3 += v2[i];
 
-    //     for (ft::vector<char>::iterator it = ft_v2.begin(); it != ft_v2.end(); ++it)
-    //         ft_s3 += *it;
+        for (ft::vector<char>::iterator it = ft_v2.begin(); it != ft_v2.end(); ++it)
+            ft_s3 += *it;
 
-    //     EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1 && sit1 == ft_sit1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3) && exec_throwed);
-    // }
+        EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1 && sit1 == ft_sit1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3) && exec_throwed);
+    }
     std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator[] method "
               << "] --------------------]\t\t\033[0m";
     {
@@ -1087,34 +1088,34 @@ void vector_tests(void)
 
         EQUAL(s1 == ft_s1 && s2 == ft_s2 && exce_throwed);
     }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " front method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v1(10, "string2");
-    //     std::vector<int> const v2(10, 9);
-    //     /*------------------ std::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v1(10, "string2");
-    //     ft::vector<int> const ft_v2(10, 9);
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " front method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v1(10, "string2");
+        std::vector<int> const v2(10, 9);
+        /*------------------ std::vectors ---------------------*/
+        ft::vector<std::string> ft_v1(10, "string2");
+        ft::vector<int> const ft_v2(10, 9);
 
-    //     v1.front() = "LEET";
-    //     ft_v1.front() = "LEET";
-    //     EQUAL(v1.front() == ft_v1.front() && v2.front() == ft_v2.front());
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " back method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v1(10, "string2");
-    //     std::vector<int> const v2(10, 9);
-    //     /*------------------ std::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v1(10, "string2");
-    //     ft::vector<int> const ft_v2(10, 9);
+        v1.front() = "LEET";
+        ft_v1.front() = "LEET";
+        EQUAL(v1.front() == ft_v1.front() && v2.front() == ft_v2.front());
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " back method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v1(10, "string2");
+        std::vector<int> const v2(10, 9);
+        /*------------------ std::vectors ---------------------*/
+        ft::vector<std::string> ft_v1(10, "string2");
+        ft::vector<int> const ft_v2(10, 9);
 
-    //     v1.back() = "LEET";
-    //     ft_v1.back() = "LEET";
-    //     EQUAL(v1.back() == ft_v1.back() && v2.back() == ft_v2.back());
-    // }
+        v1.back() = "LEET";
+        ft_v1.back() = "LEET";
+        EQUAL(v1.back() == ft_v1.back() && v2.back() == ft_v2.back());
+    }
     std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " assign(fill) method "
               << "] --------------------]\t\t\033[0m";
     {
@@ -1237,104 +1238,104 @@ void vector_tests(void)
 
     //     EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3));
     // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " push_back method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v;
-    //     /*------------------ std::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v;
-    //     /*
-    //      * Strings to store the results
-    //      */
-    //     std::string s1, s2, s3, ft_s1, ft_s2, ft_s3;
-    //     /*
-    //      * Var to store the size and the capacity
-    //      */
-    //     size_t z1, z2, z3, ft_z1, ft_z2, ft_z3;
-    //     size_t c1, c2, c3, ft_c1, ft_c2, ft_c3;
-    //     ft::vector<std::string>::iterator ft_it;
-    //     // test for an empty vector
-    //     v.push_back("hello");
-    //     ft_v.push_back("hello");
-    //     ft_it = ft_v.begin();
-    //     ft_it->length();
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " push_back method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v;
+        /*------------------ std::vectors ---------------------*/
+        ft::vector<std::string> ft_v;
+        /*
+         * Strings to store the results
+         */
+        std::string s1, s2, s3, ft_s1, ft_s2, ft_s3;
+        /*
+         * Var to store the size and the capacity
+         */
+        size_t z1, z2, z3, ft_z1, ft_z2, ft_z3;
+        size_t c1, c2, c3, ft_c1, ft_c2, ft_c3;
+        ft::vector<std::string>::iterator ft_it;
+        // test for an empty vector
+        v.push_back("hello");
+        ft_v.push_back("hello");
+        ft_it = ft_v.begin();
+        ft_it->length();
 
-    //     z1 = v.size();
-    //     c1 = v.capacity();
-    //     ft_z1 = ft_v.size();
-    //     ft_c1 = ft_v.capacity();
-    //     for (size_t i = 0; i < v.size(); ++i)
-    //         s1 += v.at(i);
+        z1 = v.size();
+        c1 = v.capacity();
+        ft_z1 = ft_v.size();
+        ft_c1 = ft_v.capacity();
+        for (size_t i = 0; i < v.size(); ++i)
+            s1 += v.at(i);
 
-    //     for (size_t i = 0; i < ft_v.size(); ++i)
-    //         ft_s1 += ft_v.at(i);
-    //     /*---------------------------------------------*/
-    //     // test for a vector with capacity >= size + the new element
-    //     v.reserve(30);
-    //     ft_v.reserve(30);
-    //     v.push_back("string");
-    //     ft_v.push_back("string");
-    //     v.push_back("string");
-    //     ft_v.push_back("string");
+        for (size_t i = 0; i < ft_v.size(); ++i)
+            ft_s1 += ft_v.at(i);
+        /*---------------------------------------------*/
+        // test for a vector with capacity >= size + the new element
+        v.reserve(30);
+        ft_v.reserve(30);
+        v.push_back("string");
+        ft_v.push_back("string");
+        v.push_back("string");
+        ft_v.push_back("string");
 
-    //     z2 = v.size();
-    //     c2 = v.capacity();
-    //     ft_z2 = ft_v.size();
-    //     ft_c2 = ft_v.capacity();
-    //     for (size_t i = 0; i < v.size(); ++i)
-    //         s2 += v.at(i);
+        z2 = v.size();
+        c2 = v.capacity();
+        ft_z2 = ft_v.size();
+        ft_c2 = ft_v.capacity();
+        for (size_t i = 0; i < v.size(); ++i)
+            s2 += v.at(i);
 
-    //     for (size_t i = 0; i < ft_v.size(); ++i)
-    //         ft_s2 += ft_v.at(i);
-    //     /*---------------------------------------------------------*/
-    //     // test for a vector with capactiy < size + the new element
-    //     for (size_t i = 0; i < 100; ++i)
-    //         v.push_back("string");
+        for (size_t i = 0; i < ft_v.size(); ++i)
+            ft_s2 += ft_v.at(i);
+        /*---------------------------------------------------------*/
+        // test for a vector with capactiy < size + the new element
+        for (size_t i = 0; i < 100; ++i)
+            v.push_back("string");
 
-    //     for (size_t i = 0; i < 100; ++i)
-    //         ft_v.push_back("string");
+        for (size_t i = 0; i < 100; ++i)
+            ft_v.push_back("string");
 
-    //     z3 = v.size();
-    //     c3 = v.capacity();
-    //     ft_z3 = ft_v.size();
-    //     ft_c3 = ft_v.capacity();
-    //     for (size_t i = 0; i < v.size(); ++i)
-    //         s3 += v.at(i);
+        z3 = v.size();
+        c3 = v.capacity();
+        ft_z3 = ft_v.size();
+        ft_c3 = ft_v.capacity();
+        for (size_t i = 0; i < v.size(); ++i)
+            s3 += v.at(i);
 
-    //     for (size_t i = 0; i < ft_v.size(); ++i)
-    //         ft_s3 += ft_v.at(i);
+        for (size_t i = 0; i < ft_v.size(); ++i)
+            ft_s3 += ft_v.at(i);
 
-    //     EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3));
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " pop_back method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*------------------ std::vectors ---------------------*/
-    //     std::vector<std::string> v(20, "string");
-    //     /*------------------ std::vectors ---------------------*/
-    //     ft::vector<std::string> ft_v(20, "string");
-    //     /*
-    //      * Strings to store the results
-    //      */
-    //     std::string s1, ft_s1;
-    //     /*
-    //      * Var to store the size and the capacity
-    //      */
-    //     size_t z1, ft_z1;
-    //     size_t c1, ft_c1;
-    //     v.pop_back();
-    //     ft_v.pop_back();
-    //     z1 = v.size();
-    //     ft_z1 = ft_v.size();
-    //     c1 = v.capacity();
-    //     ft_c1 = ft_v.capacity();
-    //     for (size_t i = 0; i < v.size(); ++i)
-    //         s1 += v[i];
-    //     for (size_t i = 0; i < ft_v.size(); ++i)
-    //         ft_s1 += ft_v[i];
-    //     EQUAL(z1 == ft_z1 && c1 == ft_c1 && s1 == ft_s1);
-    // }
+        EQUAL((s1 == ft_s1 && z1 == ft_z1 && c1 == ft_c1) && (s2 == ft_s2 && z2 == ft_z2 && c2 == ft_c2) && (s3 == ft_s3 && z3 == ft_z3 && c3 == ft_c3));
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " pop_back method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*------------------ std::vectors ---------------------*/
+        std::vector<std::string> v(20, "string");
+        /*------------------ std::vectors ---------------------*/
+        ft::vector<std::string> ft_v(20, "string");
+        /*
+         * Strings to store the results
+         */
+        std::string s1, ft_s1;
+        /*
+         * Var to store the size and the capacity
+         */
+        size_t z1, ft_z1;
+        size_t c1, ft_c1;
+        v.pop_back();
+        ft_v.pop_back();
+        z1 = v.size();
+        ft_z1 = ft_v.size();
+        c1 = v.capacity();
+        ft_c1 = ft_v.capacity();
+        for (size_t i = 0; i < v.size(); ++i)
+            s1 += v[i];
+        for (size_t i = 0; i < ft_v.size(); ++i)
+            ft_s1 += ft_v[i];
+        EQUAL(z1 == ft_z1 && c1 == ft_c1 && s1 == ft_s1);
+    }
     // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " insert method (single element) "
     //           << "] --------------------]\t\t\033[0m";
     // {
@@ -1707,258 +1708,258 @@ void vector_tests(void)
     //     /*---------------------------------------------------------------------------------------------------*/
     //     EQUAL(cond);
     // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " erase method (single element) "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*
-    //      * strings to store the resutls
-    //      */
-    //     std::string str, ft_str;
-    //     /*
-    //      * var to store the size and the capacity
-    //      */
-    //     ft::vector<std::string>::size_type s, ft_s;
-    //     ft::vector<std::string>::size_type c, ft_c;
-    //     /*
-    //      * bool to store the comparison
-    //      */
-    //     bool cond;
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " erase method (single element) "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*
+         * strings to store the resutls
+         */
+        std::string str, ft_str;
+        /*
+         * var to store the size and the capacity
+         */
+        ft::vector<std::string>::size_type s, ft_s;
+        ft::vector<std::string>::size_type c, ft_c;
+        /*
+         * bool to store the comparison
+         */
+        bool cond;
 
-    //     std::vector<std::string> v(200, "hello");
-    //     ft::vector<std::string> ft_v(200, "hello");
-    //     ft::vector<std::string>::iterator valid_it;
-    //     std::vector<std::string>::iterator it;
-    //     ft::vector<std::string>::iterator ft_it;
-    //     valid_it = ft_v.begin() + 99;
-    //     it = v.erase(v.begin() + 100);
-    //     ft_it = ft_v.erase(ft_v.begin() + 100);
-    //     ft_it->length();
+        std::vector<std::string> v(200, "hello");
+        ft::vector<std::string> ft_v(200, "hello");
+        ft::vector<std::string>::iterator valid_it;
+        std::vector<std::string>::iterator it;
+        ft::vector<std::string>::iterator ft_it;
+        valid_it = ft_v.begin() + 99;
+        it = v.erase(v.begin() + 100);
+        ft_it = ft_v.erase(ft_v.begin() + 100);
+        ft_it->length();
 
-    //     s = v.size();
-    //     ft_s = ft_v.size();
-    //     c = v.capacity();
-    //     ft_c = ft_v.capacity();
-    //     for (size_t i = 0; i < v.size(); ++i)
-    //         str += v[i];
-    //     for (size_t i = 0; i < ft_v.size(); ++i)
-    //         ft_str += ft_v[i];
-    //     cond = ((str == ft_str) && (s == ft_s) && (c == ft_c) && (&(*valid_it) == &(*(ft_v.begin() + 99))));
-    //     cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
-    //     EQUAL(cond);
-    // }
+        s = v.size();
+        ft_s = ft_v.size();
+        c = v.capacity();
+        ft_c = ft_v.capacity();
+        for (size_t i = 0; i < v.size(); ++i)
+            str += v[i];
+        for (size_t i = 0; i < ft_v.size(); ++i)
+            ft_str += ft_v[i];
+        cond = ((str == ft_str) && (s == ft_s) && (c == ft_c) && (&(*valid_it) == &(*(ft_v.begin() + 99))));
+        cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
+        EQUAL(cond);
+    }
 
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " erase method (range) "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*
-    //      * strings to store the resutls
-    //      */
-    //     std::string str, ft_str;
-    //     /*
-    //      * var to store the size and the capacity
-    //      */
-    //     ft::vector<std::string>::size_type s, ft_s;
-    //     ft::vector<std::string>::size_type c, ft_c;
-    //     std::vector<std::string>::iterator it;
-    //     ft::vector<std::string>::iterator ft_it;
-    //     /*
-    //      * bool to store the comparison
-    //      */
-    //     bool cond;
-    //     /*------------------ test 1: erase from the begin to end -------------------*/
-    //     {
-    //         std::vector<std::string> v(100, "hello");
-    //         ft::vector<std::string> ft_v(100, "hello");
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " erase method (range) "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*
+         * strings to store the resutls
+         */
+        std::string str, ft_str;
+        /*
+         * var to store the size and the capacity
+         */
+        ft::vector<std::string>::size_type s, ft_s;
+        ft::vector<std::string>::size_type c, ft_c;
+        std::vector<std::string>::iterator it;
+        ft::vector<std::string>::iterator ft_it;
+        /*
+         * bool to store the comparison
+         */
+        bool cond;
+        /*------------------ test 1: erase from the begin to end -------------------*/
+        {
+            std::vector<std::string> v(100, "hello");
+            ft::vector<std::string> ft_v(100, "hello");
 
-    //         it = v.erase(v.begin(), v.end());
-    //         ft_it = ft_v.erase(ft_v.begin(), ft_v.end());
+            it = v.erase(v.begin(), v.end());
+            ft_it = ft_v.erase(ft_v.begin(), ft_v.end());
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.size();
-    //         ft_c = ft_v.size();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
-    //         cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
-    //     }
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.size();
+            ft_c = ft_v.size();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
+            cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
+        }
 
-    //     /*--------------------------------------------------------------------------*/
-    //     /*------------------ test 2: erase from the begin to begin + 70 -------------------*/
-    //     {
-    //         std::vector<std::string> v(100, "hello");
-    //         ft::vector<std::string> ft_v(100, "hello");
+        /*--------------------------------------------------------------------------*/
+        /*------------------ test 2: erase from the begin to begin + 70 -------------------*/
+        {
+            std::vector<std::string> v(100, "hello");
+            ft::vector<std::string> ft_v(100, "hello");
 
-    //         it = v.erase(v.begin(), v.begin() + 70);
-    //         ft_it = ft_v.erase(ft_v.begin(), ft_v.begin() + 70);
-    //         ft_it->length();
+            it = v.erase(v.begin(), v.begin() + 70);
+            ft_it = ft_v.erase(ft_v.begin(), ft_v.begin() + 70);
+            ft_it->length();
 
-    //         str.clear();
-    //         ft_str.clear();
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.size();
-    //         ft_c = ft_v.size();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
-    //     }
-    //     /*--------------------------------------------------------------------------*/
-    //     /*------------------ test 3: erase from the begin + 60 to end -------------------*/
+            str.clear();
+            ft_str.clear();
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.size();
+            ft_c = ft_v.size();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
+        }
+        /*--------------------------------------------------------------------------*/
+        /*------------------ test 3: erase from the begin + 60 to end -------------------*/
 
-    //     {
-    //         std::vector<std::string> v(100, "hello");
-    //         ft::vector<std::string> ft_v(100, "hello");
+        {
+            std::vector<std::string> v(100, "hello");
+            ft::vector<std::string> ft_v(100, "hello");
 
-    //         it = v.erase(v.begin() + 60, v.end());
-    //         ft_it = ft_v.erase(ft_v.begin() + 60, ft_v.end());
+            it = v.erase(v.begin() + 60, v.end());
+            ft_it = ft_v.erase(ft_v.begin() + 60, ft_v.end());
 
-    //         str.clear();
-    //         ft_str.clear();
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.size();
-    //         ft_c = ft_v.size();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
-    //     }
+            str.clear();
+            ft_str.clear();
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.size();
+            ft_c = ft_v.size();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
+        }
 
-    //     /*--------------------------------------------------------------------------*/
-    //     /*------------------ test 4: erase from the begin + 20 to end - 30 -------------------*/
-    //     {
-    //         std::vector<std::string> v(100, "hello");
-    //         ft::vector<std::string> ft_v(100, "hello");
+        /*--------------------------------------------------------------------------*/
+        /*------------------ test 4: erase from the begin + 20 to end - 30 -------------------*/
+        {
+            std::vector<std::string> v(100, "hello");
+            ft::vector<std::string> ft_v(100, "hello");
 
-    //         it = v.erase(v.begin() + 20, v.end() - 30);
-    //         ft_it = ft_v.erase(ft_v.begin() + 20, ft_v.end() - 30);
-    //         ft_it->length();
+            it = v.erase(v.begin() + 20, v.end() - 30);
+            ft_it = ft_v.erase(ft_v.begin() + 20, ft_v.end() - 30);
+            ft_it->length();
 
-    //         str.clear();
-    //         ft_str.clear();
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.size();
-    //         ft_c = ft_v.size();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
-    //     }
-    //     /*--------------------------------------------------------------------------*/
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " swap method "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     /*
-    //      * strings to store the resutls
-    //      */
-    //     std::string str, ft_str;
-    //     /*
-    //      * var to store the size and the capacity
-    //      */
-    //     ft::vector<std::string>::size_type s, ft_s;
-    //     ft::vector<std::string>::size_type c, ft_c;
-    //     ft::vector<std::string>::iterator b1, b2;
-    //     /*
-    //      * bool to store the comparison
-    //      */
-    //     bool cond;
+            str.clear();
+            ft_str.clear();
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.size();
+            ft_c = ft_v.size();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && (std::distance(v.begin(), it) == std::distance(ft_v.begin(), ft_it)));
+        }
+        /*--------------------------------------------------------------------------*/
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " swap method "
+              << "] --------------------]\t\t\033[0m";
+    {
+        /*
+         * strings to store the resutls
+         */
+        std::string str, ft_str;
+        /*
+         * var to store the size and the capacity
+         */
+        ft::vector<std::string>::size_type s, ft_s;
+        ft::vector<std::string>::size_type c, ft_c;
+        ft::vector<std::string>::iterator b1, b2;
+        /*
+         * bool to store the comparison
+         */
+        bool cond;
 
-    //     /*---------------------------------- test 1: equal size vectors ----------------------*/
-    //     {
-    //         std::vector<std::string> v(200, "hello");
-    //         std::vector<std::string> v1(200, "string");
-    //         ft::vector<std::string> ft_v(200, "hello");
-    //         ft::vector<std::string> ft_v1(200, "string");
+        /*---------------------------------- test 1: equal size vectors ----------------------*/
+        {
+            std::vector<std::string> v(200, "hello");
+            std::vector<std::string> v1(200, "string");
+            ft::vector<std::string> ft_v(200, "hello");
+            ft::vector<std::string> ft_v1(200, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         v.swap(v1);
-    //         ft_v.swap(ft_v1);
+            v.swap(v1);
+            ft_v.swap(ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     /*---------------------------------- test 2: lhs > rhs ----------------------*/
-    //     {
-    //         std::vector<std::string> v(200, "hello");
-    //         std::vector<std::string> v1(50, "string");
-    //         ft::vector<std::string> ft_v(200, "hello");
-    //         ft::vector<std::string> ft_v1(50, "string");
+            cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        /*---------------------------------- test 2: lhs > rhs ----------------------*/
+        {
+            std::vector<std::string> v(200, "hello");
+            std::vector<std::string> v1(50, "string");
+            ft::vector<std::string> ft_v(200, "hello");
+            ft::vector<std::string> ft_v1(50, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         v.swap(v1);
-    //         ft_v.swap(ft_v1);
+            v.swap(v1);
+            ft_v.swap(ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     /*---------------------------------- test 2: lhs < rhs ----------------------*/
-    //     {
-    //         std::vector<std::string> v(50, "hello");
-    //         std::vector<std::string> v1(200, "string");
-    //         ft::vector<std::string> ft_v(50, "hello");
-    //         ft::vector<std::string> ft_v1(200, "string");
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        /*---------------------------------- test 2: lhs < rhs ----------------------*/
+        {
+            std::vector<std::string> v(50, "hello");
+            std::vector<std::string> v1(200, "string");
+            ft::vector<std::string> ft_v(50, "hello");
+            ft::vector<std::string> ft_v1(200, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         v.swap(v1);
-    //         ft_v.swap(ft_v1);
+            v.swap(v1);
+            ft_v.swap(ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     EQUAL(cond);
-    // }
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        EQUAL(cond);
+    }
     std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " clear method "
               << "] --------------------]\t\t\033[0m";
     {
@@ -2006,413 +2007,413 @@ void vector_tests(void)
 
         EQUAL(v.get_allocator().max_size() == ft_v.get_allocator().max_size());
     }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator== "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
-    //     /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(100, 5);
-
-    //         cond = ((v == v1) == (ft_v == ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(50, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(50, 5);
-    //         ft::vector<int> ft_v1(100, 5);
-
-    //         cond = (cond && (v == v1) == (ft_v == ft_v1));
-    //         v[40] = 4;
-    //         ft_v[40] = 4;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(50, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(50, 5);
-
-    //         cond = (cond && (v == v1) == (ft_v == ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //         v1[40] = 3;
-    //         ft_v1[40] = 3;
-    //         cond = (cond && ((v == v1) == (ft_v == ft_v1)));
-    //     }
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator!= "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator== "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
         /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-        // {
-        //     std::vector<int> v(100, 5);
-        //     std::vector<int> v1(100, 5);
-        //     ft::vector<int> ft_v(100, 5);
-        //     ft::vector<int> ft_v1(100, 5);
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-        //     cond = ((v != v1) == (ft_v != ft_v1));
-        //     v[80] = 4;
-        //     ft_v[80] = 4;
-        //     cond = (cond && ((v != v1) == (ft_v != ft_v1)));
-        //     v1[80] = 3;
-        //     ft_v1[80] = 3;
-        //     cond = (cond && ((v != v1) == (ft_v != ft_v1)));
-        // }
+            cond = ((v == v1) == (ft_v == ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+        }
         /*------------------------------------------------------------------------------------------*/
         /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-        // {
-        //     std::vector<int> v(50, 5);
-        //     std::vector<int> v1(100, 5);
-        //     ft::vector<int> ft_v(50, 5);
-        //     ft::vector<int> ft_v1(100, 5);
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-        //     cond = (cond && (v != v1) == (ft_v != ft_v1));
-        //     v[40] = 4;
-        //     ft_v[40] = 4;
-        //     cond = (cond && ((v != v1) == (ft_v != ft_v1)));
-        //     v1[80] = 3;
-        //     ft_v1[80] = 3;
-        //     cond = (cond && ((v != v1) == (ft_v != ft_v1)));
-        // }
+            cond = (cond && (v == v1) == (ft_v == ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+        }
         /*------------------------------------------------------------------------------------------*/
         /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-        //  
-        // EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator< "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
-    //     /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(50, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(50, 5);
 
-    //         cond = ((v < v1) == (ft_v < ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(50, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(50, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = (cond && (v == v1) == (ft_v == ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+            v1[40] = 3;
+            ft_v1[40] = 3;
+            cond = (cond && ((v == v1) == (ft_v == ft_v1)));
+        }
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator!= "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
+        /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = (cond && (v < v1) == (ft_v < ft_v1));
-    //         v[40] = 4;
-    //         ft_v[40] = 4;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(50, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(50, 5);
+            cond = ((v != v1) == (ft_v != ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v != v1) == (ft_v != ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v != v1) == (ft_v != ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = (cond && (v < v1) == (ft_v < ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //         v1[40] = 3;
-    //         ft_v1[40] = 3;
-    //         cond = (cond && ((v < v1) == (ft_v < ft_v1)));
-    //     }
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator<= "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
-    //     /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = (cond && (v != v1) == (ft_v != ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v != v1) == (ft_v != ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v != v1) == (ft_v != ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
+         
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator< "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
+        /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = ((v <= v1) == (ft_v <= ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(50, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(50, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = ((v < v1) == (ft_v < ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = (cond && (v <= v1) == (ft_v <= ft_v1));
-    //         v[40] = 4;
-    //         ft_v[40] = 4;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(50, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(50, 5);
+            cond = (cond && (v < v1) == (ft_v < ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(50, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(50, 5);
 
-    //         cond = (cond && (v <= v1) == (ft_v <= ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //         v1[40] = 3;
-    //         ft_v1[40] = 3;
-    //         cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
-    //     }
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator> "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
-    //     /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = (cond && (v < v1) == (ft_v < ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+            v1[40] = 3;
+            ft_v1[40] = 3;
+            cond = (cond && ((v < v1) == (ft_v < ft_v1)));
+        }
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator<= "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
+        /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = ((v > v1) == (ft_v > ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(50, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(50, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = ((v <= v1) == (ft_v <= ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = (cond && (v > v1) == (ft_v > ft_v1));
-    //         v[40] = 4;
-    //         ft_v[40] = 4;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(50, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(50, 5);
+            cond = (cond && (v <= v1) == (ft_v <= ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(50, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(50, 5);
 
-    //         cond = (cond && (v > v1) == (ft_v > ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //         v1[40] = 3;
-    //         ft_v1[40] = 3;
-    //         cond = (cond && ((v > v1) == (ft_v > ft_v1)));
-    //     }
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator>= "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
-    //     bool cond;
-    //     /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = (cond && (v <= v1) == (ft_v <= ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+            v1[40] = 3;
+            ft_v1[40] = 3;
+            cond = (cond && ((v <= v1) == (ft_v <= ft_v1)));
+        }
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator> "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
+        /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = ((v >= v1) == (ft_v >= ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(50, 5);
-    //         std::vector<int> v1(100, 5);
-    //         ft::vector<int> ft_v(50, 5);
-    //         ft::vector<int> ft_v1(100, 5);
+            cond = ((v > v1) == (ft_v > ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
 
-    //         cond = (cond && (v >= v1) == (ft_v >= ft_v1));
-    //         v[40] = 4;
-    //         ft_v[40] = 4;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //         v1[80] = 3;
-    //         ft_v1[80] = 3;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //     }
-    //     /*------------------------------------------------------------------------------------------*/
-    //     /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
-    //     {
-    //         std::vector<int> v(100, 5);
-    //         std::vector<int> v1(50, 5);
-    //         ft::vector<int> ft_v(100, 5);
-    //         ft::vector<int> ft_v1(50, 5);
+            cond = (cond && (v > v1) == (ft_v > ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(50, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(50, 5);
 
-    //         cond = (cond && (v >= v1) == (ft_v >= ft_v1));
-    //         v[80] = 4;
-    //         ft_v[80] = 4;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //         v1[40] = 3;
-    //         ft_v1[40] = 3;
-    //         cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
-    //     }
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " swap "
-    //           << "] --------------------]\t\t\033[0m";
-    // {
+            cond = (cond && (v > v1) == (ft_v > ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+            v1[40] = 3;
+            ft_v1[40] = 3;
+            cond = (cond && ((v > v1) == (ft_v > ft_v1)));
+        }
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " operator>= "
+              << "] --------------------]\t\t\033[0m";
+    {
+        bool cond;
+        /*------------------------------------------ test 1: lhs.size == rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(100, 5);
+
+            cond = ((v >= v1) == (ft_v >= ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 2: lhs.size < rhs.size ------------------*/
+        {
+            std::vector<int> v(50, 5);
+            std::vector<int> v1(100, 5);
+            ft::vector<int> ft_v(50, 5);
+            ft::vector<int> ft_v1(100, 5);
+
+            cond = (cond && (v >= v1) == (ft_v >= ft_v1));
+            v[40] = 4;
+            ft_v[40] = 4;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+            v1[80] = 3;
+            ft_v1[80] = 3;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*------------------------------------------ test 3: lhs.size > rhs.size ------------------*/
+        {
+            std::vector<int> v(100, 5);
+            std::vector<int> v1(50, 5);
+            ft::vector<int> ft_v(100, 5);
+            ft::vector<int> ft_v1(50, 5);
+
+            cond = (cond && (v >= v1) == (ft_v >= ft_v1));
+            v[80] = 4;
+            ft_v[80] = 4;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+            v1[40] = 3;
+            ft_v1[40] = 3;
+            cond = (cond && ((v >= v1) == (ft_v >= ft_v1)));
+        }
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;37m[-------------------- [" << std::setw(40) << std::left << " swap "
+              << "] --------------------]\t\t\033[0m";
+    {
         /*
          * strings to store the resutls
          */
-    //     std::string str, ft_str;
-    //     /*
-    //      * var to store the size and the capacity
-    //      */
-    //     ft::vector<std::string>::size_type s, ft_s;
-    //     ft::vector<std::string>::size_type c, ft_c;
-    //     ft::vector<std::string>::iterator b1, b2;
-    //     /*
-    //      * bool to store the comparison
-    //      */
-    //     bool cond;
+        std::string str, ft_str;
+        /*
+         * var to store the size and the capacity
+         */
+        ft::vector<std::string>::size_type s, ft_s;
+        ft::vector<std::string>::size_type c, ft_c;
+        ft::vector<std::string>::iterator b1, b2;
+        /*
+         * bool to store the comparison
+         */
+        bool cond;
 
-    //     /*---------------------------------- test 1: equal size vectors ----------------------*/
-    //     {
-    //         std::vector<std::string> v(200, "hello");
-    //         std::vector<std::string> v1(200, "string");
-    //         ft::vector<std::string> ft_v(200, "hello");
-    //         ft::vector<std::string> ft_v1(200, "string");
+        /*---------------------------------- test 1: equal size vectors ----------------------*/
+        {
+            std::vector<std::string> v(200, "hello");
+            std::vector<std::string> v1(200, "string");
+            ft::vector<std::string> ft_v(200, "hello");
+            ft::vector<std::string> ft_v1(200, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         swap(v, v1);
-    //         swap(ft_v, ft_v1);
+            swap(v, v1);
+            swap(ft_v, ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     /*---------------------------------- test 2: lhs > rhs ----------------------*/
-    //     {
-    //         std::vector<std::string> v(200, "hello");
-    //         std::vector<std::string> v1(50, "string");
-    //         ft::vector<std::string> ft_v(200, "hello");
-    //         ft::vector<std::string> ft_v1(50, "string");
+            cond = ((str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        /*---------------------------------- test 2: lhs > rhs ----------------------*/
+        {
+            std::vector<std::string> v(200, "hello");
+            std::vector<std::string> v1(50, "string");
+            ft::vector<std::string> ft_v(200, "hello");
+            ft::vector<std::string> ft_v1(50, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         swap(v, v1);
-    //         swap(ft_v, ft_v1);
+            swap(v, v1);
+            swap(ft_v, ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     /*---------------------------------- test 2: lhs < rhs ----------------------*/
-    //     {
-    //         std::vector<std::string> v(50, "hello");
-    //         std::vector<std::string> v1(200, "string");
-    //         ft::vector<std::string> ft_v(50, "hello");
-    //         ft::vector<std::string> ft_v1(200, "string");
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        /*---------------------------------- test 2: lhs < rhs ----------------------*/
+        {
+            std::vector<std::string> v(50, "hello");
+            std::vector<std::string> v1(200, "string");
+            ft::vector<std::string> ft_v(50, "hello");
+            ft::vector<std::string> ft_v1(200, "string");
 
-    //         b1 = ft_v.begin();
-    //         b2 = ft_v1.begin();
+            b1 = ft_v.begin();
+            b2 = ft_v1.begin();
 
-    //         swap(v, v1);
-    //         swap(ft_v, ft_v1);
+            swap(v, v1);
+            swap(ft_v, ft_v1);
 
-    //         s = v.size();
-    //         ft_s = ft_v.size();
-    //         c = v.capacity();
-    //         ft_c = ft_v.capacity();
-    //         for (size_t i = 0; i < v.size(); ++i)
-    //             str += v[i];
-    //         for (size_t i = 0; i < ft_v.size(); ++i)
-    //             ft_str += ft_v[i];
+            s = v.size();
+            ft_s = ft_v.size();
+            c = v.capacity();
+            ft_c = ft_v.capacity();
+            for (size_t i = 0; i < v.size(); ++i)
+                str += v[i];
+            for (size_t i = 0; i < ft_v.size(); ++i)
+                ft_str += ft_v[i];
 
-    //         cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
-    //         cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
-    //         cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
-    //     }
-    //     /*--------------------------------------------------------------------------------------------*/
-    //     EQUAL(cond);
-    // }
-    // std::cout << "\033[1;36m\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m\n\n";
+            cond = (cond && (str == ft_str) && (s == ft_s) && (c == ft_c));
+            cond = (cond && ((&*b2) == (&(*ft_v.begin()))));
+            cond = (cond && ((&*b1) == (&(*ft_v1.begin()))));
+        }
+        /*--------------------------------------------------------------------------------------------*/
+        EQUAL(cond);
+    }
+    std::cout << "\033[1;36m\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m\n\n";
 } // vec_end
 
 void alarm_handler(int seg)
